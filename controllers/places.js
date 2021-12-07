@@ -22,7 +22,8 @@ router.get("/", (req, res) => {
 })
 
 router.post("/", (req, res) => {
-    res.redirect("/")
+    console.log(req)
+    res.send("POST /places")
 })
 
 module.exports = router
