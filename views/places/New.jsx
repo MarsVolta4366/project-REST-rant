@@ -6,6 +6,29 @@ function New_Form() {
         <Def>
             <main>
                 <h1>Add a new place</h1>
+                <form action="/places" method="POST">
+                    <div className="form-group">
+                        <label htmlFor="placeName">Place Name</label>
+                        <input className="form-control" type="text" name="placeName" id="placeName" required />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="pic">Place Picture</label>
+                        <input className="form-control" type="url" id="pic" name="pic" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="city">City</label>
+                        <input className="form-control" type="text" name="city" id="city" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="state">State</label>
+                        <input className="form-control" type="text" name="state" id="state" />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="cuisines">Cuisines</label>
+                        <input className="form-control" type="text" name="cuisines" id="cuisines" required />
+                    </div>
+                    <input className="btn btn-primary" type="submit" value="Add Place" />
+                </form>
             </main>
         </Def>
     )
