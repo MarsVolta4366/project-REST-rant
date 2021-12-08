@@ -8,8 +8,8 @@ function New_Form() {
                 <h1>Add a new place</h1>
                 <form action="/places" method="POST">
                     <div className="form-group">
-                        <label htmlFor="placeName">Place Name</label>
-                        <input className="form-control" type="text" name="placeName" id="placeName" required />
+                        <label htmlFor="name">Place Name</label>
+                        <input className="form-control" type="text" name="name" id="name" required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="pic">Place Picture</label>
