@@ -1,5 +1,6 @@
 const router = require('express').Router()
 var bodyParser = require('body-parser')
+const { route } = require('express/lib/application')
 const places = require("../models/places.js")
 
 // create application/json parser
@@ -46,6 +47,18 @@ router.post("/", urlencodedParser, (req, res) => {
     }
     places.push(req.body)
     res.redirect("/places")
+})
+
+// Show route
+router.get("/:id", (req, res) => {
+    let id = Number(req.params.id)
+    if(isNaN(id)) {
+        res.render("Error404")
+    } else if(!places[id]) {
+        res.render("Error404")
+    } else {
+        res.render("places/Show", {place: places[id]})
+    }
 })
 
 module.exports = router
