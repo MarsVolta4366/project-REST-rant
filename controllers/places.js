@@ -1,3 +1,4 @@
+// AT PARAGRAPH ABOVE PART SIX
 const router = require('express').Router()
 var bodyParser = require('body-parser')
 const { route } = require('express/lib/application')
@@ -11,6 +12,14 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get("/new", (req, res) => {
     res.render("places/New")
+})
+
+router.get("/:id/edit", (req, res) => {
+    res.send("Edit page")
+})
+
+router.delete("/:id", (req, res) => {
+    res.send("Delete page")
 })
 
 router.get("/", (req, res) => {
@@ -57,7 +66,7 @@ router.get("/:id", (req, res) => {
     } else if(!places[id]) {
         res.render("Error404")
     } else {
-        res.render("places/Show", {place: places[id]})
+        res.render("places/Show", {place: places[id], id})
     }
 })
 
