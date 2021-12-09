@@ -10,7 +10,7 @@ function Show({place, id}) {
                 <img src={place.pic} alt={place.name} />
                 <p>Located in {place.city}, {place.state}</p>
                 <a href={`/places/${id}/edit`} className="btn btn-warning">Edit</a>
-                <form action={`/places/${id}?_method=DELETE`} method="POST">
+                <form method="POST" action={`/places/${id}?_method=DELETE`}>
                     <input type="submit" className="btn btn-danger" value="Delete" />
                 </form>
                 <div>
