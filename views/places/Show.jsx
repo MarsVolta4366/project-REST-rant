@@ -13,6 +13,7 @@ function Show({place, id}) {
                 <form method="POST" action={`/places/${id}?_method=DELETE`}>
                     <input type="submit" className="btn btn-danger" value="Delete" />
                 </form>
+                {/* <button onClick={deletePlace(id)}>Delete</button> */}
                 <div>
                     <h2>Rating</h2>
                     <p>Currently unrated</p>
@@ -25,5 +26,11 @@ function Show({place, id}) {
         </Def>
     )
 }
+
+// async function deletePlace(id) {
+//     let response = await fetch(`/places/${id}`,{
+//         method: "DELETE",
+//     })
+// }
 
 module.exports = Show
