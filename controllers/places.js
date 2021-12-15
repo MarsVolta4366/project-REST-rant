@@ -54,7 +54,14 @@ router.get("/:id", (req, res) => {
     //     res.render("places/Show", {place: places[id], id})
     // }
 
-    res.send("GET /places/:id stub")
+    db.Place.findById(req.params.id)
+        .then(place => {
+            res.render("places/Show", {place})
+        })
+        .catch(err => {
+            console.log("ERR: " + err)
+            res.render("Error404")
+        })
 })  
 
 // EDIT
