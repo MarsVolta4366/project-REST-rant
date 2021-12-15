@@ -1,21 +1,20 @@
 const React = require("react")
 const Def = require("../Default")
 
-function Show({place, id}) {
+function Show(data) {
     return (
         <Def>
             <main>
-                <h1>{place.name}</h1>
-                <p>{place.cuisines}</p>
-                <img src={place.pic} alt={place.name} />
-                <p>Located in {place.city}, {place.state}</p>
-                <a href={`/places/${id}/edit`} className="btn btn-warning">Edit</a>
-                <form method="POST" action={`/places/${id}?_method=DELETE`}>
-                    <input type="submit" className="btn btn-danger" value="Delete" />
+                <h1>{data.place.name}</h1>
+                <p>{data.place.cuisines}</p>
+                <img src={data.place.pic} alt={data.place.name} />
+                <p>Located in {data.place.city}, {data.place.state}</p>
+                <a href={`/places/${data.id}/edit`} className="btn btn-warning">Edit</a>
+
+                <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
+                    <button type="submit" className="btn btn-danger">Delete</button>
                 </form>
-                {/* <button onClick={deletePlace(id)}>Delete</button> */}
                 <div>
-                    <h2>Rating</h2>
                     <p>Currently unrated</p>
                 </div>
                 <div>
@@ -26,11 +25,5 @@ function Show({place, id}) {
         </Def>
     )
 }
-
-// async function deletePlace(id) {
-//     let response = await fetch(`/places/${id}`,{
-//         method: "DELETE",
-//     })
-// }
 
 module.exports = Show
