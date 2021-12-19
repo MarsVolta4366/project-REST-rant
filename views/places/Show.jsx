@@ -39,6 +39,7 @@ function Show(data) {
                 </div>
                 <div>
                     <h2>Comments</h2>
+                    {comments}
                 </div>
             </main>
         </Def>
