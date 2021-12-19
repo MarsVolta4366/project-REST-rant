@@ -28,9 +28,9 @@ function Show(data) {
                 <p>Located in {data.place.city}, {data.place.state}</p>
                 <h2>Description</h2>
                 <p>{data.place.showEstablished()}</p>
-                <a href={`/places/${data.id}/edit`} className="btn btn-warning">Edit</a>
+                <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">Edit</a>
 
-                <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
+                <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}>
                     <button type="submit" className="btn btn-danger">Delete</button>
                 </form>
                 <div>
@@ -43,7 +43,7 @@ function Show(data) {
                 </div>
                 <div>
                     <h2>Got Your Own Rant or Rave?</h2>
-                    <form method="POST" action={`/places/${data.id}/comment`}>
+                    <form method="POST" action={`/places/${data.place.id}/comment`}>
 
                         <label htmlFor="author">Author</label>
                         <input type="text" name="author" id="author" />
@@ -52,7 +52,7 @@ function Show(data) {
                         <input type="textarea" name="content" id="content" />
 
                         <label htmlFor="stars">Star Rating</label>
-                        <input type="number" step={.5} name="stars" id="stars" />
+                        <input type="number" step={.5} max={5} name="stars" id="stars" />
 
                         <label htmlFor="rant">Rant?</label>
                         <input type="checkbox" name="rant" id="rant" />
