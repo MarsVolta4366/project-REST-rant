@@ -8,7 +8,7 @@ function Show(data) {
     if (data.place.comments.length) {
         comments = data.place.comments.map(c => {
           return (
-            <div className="border">
+            <div className="border" key={c.id}>
               <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
               <h4>{c.content}</h4>
               <h3>
@@ -40,6 +40,26 @@ function Show(data) {
                 <div>
                     <h2>Comments</h2>
                     {comments}
+                </div>
+                <div>
+                    <h2>Got Your Own Rant or Rave?</h2>
+                    <form method="POST" action={`/places/${data.id}/comment`}>
+
+                        <label htmlFor="author">Author</label>
+                        <input type="text" name="author" id="author" />
+
+                        <label htmlFor="content">Comment</label>
+                        <input type="textarea" name="content" id="content" />
+
+                        <label htmlFor="stars">Star Rating</label>
+                        <input type="number" step={.5} name="stars" id="stars" />
+
+                        <label htmlFor="rant">Rant?</label>
+                        <input type="checkbox" name="rant" id="rant" />
+
+                        <input type="submit" value="Submit" />
+                        
+                    </form>
                 </div>
             </main>
         </Def>
