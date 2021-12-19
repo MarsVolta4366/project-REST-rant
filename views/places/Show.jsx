@@ -41,15 +41,15 @@ function Show(data) {
                     <h2>Comments</h2>
                     {comments}
                 </div>
-                <div>
+                <div className="form-group">
                     <h2>Got Your Own Rant or Rave?</h2>
                     <form method="POST" action={`/places/${data.place.id}/comment`}>
 
                         <label htmlFor="author">Author</label>
-                        <input type="text" name="author" id="author" />
+                        <input type="text" name="author" id="author" className="form-control" />
 
                         <label htmlFor="content">Comment</label>
-                        <input type="textarea" name="content" id="content" />
+                        <input type="textarea" name="content" id="content" className="form-control" />
 
                         <label htmlFor="stars">Star Rating</label>
                         <input type="number" step={.5} max={5} name="stars" id="stars" />
@@ -58,7 +58,7 @@ function Show(data) {
                         <input type="checkbox" name="rant" id="rant" />
 
                         <input type="submit" value="Submit" />
-                        
+                         
                     </form>
                 </div>
             </main>
