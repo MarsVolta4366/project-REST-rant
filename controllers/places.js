@@ -45,17 +45,35 @@ router.get("/:id", (req, res) => {
 
 // EDIT
 router.get("/:id/edit", (req, res) => {
-    res.send("GET edit form stub")
+    db.Place.findById(req.params.id)
+        .then(place => {
+            res.render("places/edit", {place})
+        })
+        .catch(error => {
+            res.render("Error404")
+        })
 })
 
 // UPDATE
 router.put('/:id', (req, res) => {
-    res.send("PUT /places/:id stub")
+    db.Place.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => {
+            res.redirect(`/places/${req.params.id}`)
+        })
+        .catch(error => {
+            res.render("Error404")
+        })
 })
 
 // DELETE
 router.delete("/:id", (req, res) => {
-    res.send("DELETE /places/:id stub")
+    db.Place.findByIdAndDelete(req.params.id)
+        .then(place => {
+            res.redirect("/places")
+        })
+        .catch(error => {
+            res.render("Error404")
+        })
 })
 
 router.post("/:id/comment", (req, res) => {
